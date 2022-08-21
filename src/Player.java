@@ -2,11 +2,21 @@ import java.util.Scanner;
 
 public class Player {
     private int damage,health,money;
-    String name;
-    String charName;
+    private String name;
+    private String charName;
+    private Inventory inventory;
     private Scanner input = new Scanner(System.in);
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
     public Player(String name) {
+        this.inventory = new Inventory();
         this.name = name;
     }
 
@@ -43,6 +53,8 @@ public class Player {
                 +" \t Para: " + this.getMoney());
     }
 
+
+
     public void initPlayer(GameChar gameChar){
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
@@ -50,8 +62,15 @@ public class Player {
         this.setCharName(gameChar.getName());
     }
 
+    public void printInfo(){
+        System.out.println("Silahınız : " + this.getInventory().getWeapon().getName()
+                + "\tHasar : " + this.getDamage()
+                + "\tSağlık : " + this.getHealth()
+                + "\tPara : " + this.getMoney());
+    }
+
     public int getDamage() {
-        return damage;
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
