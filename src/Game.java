@@ -18,11 +18,15 @@ public class Game {
             System.out.println();
             System.out.println("########Bölgeler########");
             System.out.println();
+            System.out.println("0 - Çıkış yap.");
             System.out.println("1 - Güvenli Ev");
             System.out.println("2 - Mağaza");
             System.out.println("Lütfen gitmek istediğniz yeri seçiniz : ");
             int selectLoc = input.nextInt();
             switch (selectLoc) {
+                case 0:
+                    location=null;
+                    break;
                 case 1:
                     location = new SafeHouse(player);
                     break;
@@ -32,6 +36,11 @@ public class Game {
                 default:
                     location = new SafeHouse(player);
             }
+            if(location == null){
+                System.out.println("Oyun bitti yine bekleriz :)");
+                break;
+            }
+
             if (!location.onLocation()) {
                 System.out.println("Game Over");
             }
