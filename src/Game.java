@@ -21,6 +21,9 @@ public class Game {
             System.out.println("0 - Çıkış yap.");
             System.out.println("1 - Güvenli Ev");
             System.out.println("2 - Mağaza");
+            System.out.println("3 - Mağara");
+            System.out.println("4 - Orman");
+            System.out.println("5 - Nehir");
             System.out.println("Lütfen gitmek istediğniz yeri seçiniz : ");
             int selectLoc = input.nextInt();
             switch (selectLoc) {
@@ -33,8 +36,18 @@ public class Game {
                 case 2:
                     location = new ToolStore(player);
                     break;
+                case 3:
+                    location = new Cave(player);
+                    break;
+                case 4:
+                    location = new Forest(player);
+                    break;
+                case 5:
+                    location = new River(player);
+                    break;
                 default:
-                    location = new SafeHouse(player);
+                    System.out.println("Lütfen geçerli bir yer giriniz!");
+                    break;
             }
             if(location == null){
                 System.out.println("Oyun bitti yine bekleriz :)");
