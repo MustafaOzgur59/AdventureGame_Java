@@ -48,7 +48,7 @@ public class Player {
         }
         System.out.println(
                 "Karakter: "  + this.getCharName()
-                + " \t Hasar: " + this.getDamage()
+                + " \t Hasar: " + this.getTotalDamage()
                 +" \t Sağlık: "+ this.getHealth()
                 +" \t Para: " + this.getMoney());
     }
@@ -70,9 +70,11 @@ public class Player {
                 + "\tSağlık : " + this.getHealth()
                 + "\tPara : " + this.getMoney());
     }
-
-    public int getDamage() {
+    public int getTotalDamage(){
         return damage + this.getInventory().getWeapon().getDamage();
+    }
+    public int getDamage() {
+        return damage;
     }
 
     public void setDamage(int damage) {

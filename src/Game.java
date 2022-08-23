@@ -56,6 +56,7 @@ public class Game {
 
             if (!location.onLocation()) {
                 System.out.println("Game Over");
+                break;
             }
         }
     }

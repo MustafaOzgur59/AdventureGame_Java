@@ -7,6 +7,7 @@ public class SafeHouse extends NormalLoc{
     @Override
     public boolean onLocation(){
         System.out.println("Güvenli evdesiniz. Canınız yenilendi");
+
         return true;
     }
 }
