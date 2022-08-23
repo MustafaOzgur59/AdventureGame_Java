@@ -11,9 +11,9 @@ public class Armor {
 
     public static Armor[] armors(){
         Armor[] armorList = {
-                new Armor(1, 1,15,"Hafif"),
-                new Armor(2, 3,25,"Orta"),
-                new Armor(3, 5,40,"Ağır")
+                new Armor(1, 1,15,"Light"),
+                new Armor(2, 3,25,"Medium"),
+                new Armor(3, 5,40,"Heavy")
         };
         return armorList;
     }

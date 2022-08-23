@@ -1,5 +1,5 @@
 public class River extends BattleLoc{
     public River(Player player) {
-        super("Nehir", player, new Bear(), "Water",2);
+        super("River", player, new Bear(), "Water",2);
     }
 }

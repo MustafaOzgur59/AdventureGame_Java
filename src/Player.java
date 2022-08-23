@@ -34,13 +34,13 @@ public class Player {
         System.out.println("----------------------------");
         for (GameChar gameChar: charList) {
             System.out.println("ID : " + gameChar.getId()
-                    +"\t Karater: "  + gameChar.getName()
-                    + " \t Hasar: " + gameChar.getDamage()
-                    +" \t Sağlık: "+ gameChar.getHealth()
-                    +" \t Para: " + gameChar.getMoney());
+                    +"\t Character: "  + gameChar.getName()
+                    + " \t Damage: " + gameChar.getDamage()
+                    +" \t Health: "+ gameChar.getHealth()
+                    +" \t Money: " + gameChar.getMoney());
         }
         System.out.println("----------------------------");
-        System.out.println("Lütfen bir karakter giriniz !");
+        System.out.println("Please enter a character : ");
         int selectChar = input.nextInt();
         switch (selectChar){
             case 1:
@@ -56,10 +56,10 @@ public class Player {
                 initPlayer(new Samurai());
         }
         System.out.println(
-                "Karakter: "  + this.getCharName()
-                + " \t Hasar: " + this.getTotalDamage()
-                +" \t Sağlık: "+ this.getHealth()
-                +" \t Para: " + this.getMoney());
+                "Character: "  + this.getCharName()
+                + " \t Damage: " + this.getTotalDamage()
+                +" \t Health: "+ this.getHealth()
+                +" \t Money: " + this.getMoney());
     }
 
 
@@ -73,12 +73,12 @@ public class Player {
     }
 
     public void printInfo(){
-        System.out.println("Silah : " + this.getInventory().getWeapon().getName()
-                + "\tZırh : " + this.getInventory().getArmor().getName()
-                +"\tBloklama : " +  this.getInventory().getArmor().getBlock()
-                + "\tHasar : " + this.getTotalDamage()
-                + "\tSağlık : " + this.getHealth()
-                + "\tPara : " + this.getMoney());
+        System.out.println("Weapon : " + this.getInventory().getWeapon().getName()
+                + "\tArmor : " + this.getInventory().getArmor().getName()
+                +"\tBlock : " +  this.getInventory().getArmor().getBlock()
+                + "\tDamage : " + this.getTotalDamage()
+                + "\tHealth : " + this.getHealth()
+                + "\tMoney : " + this.getMoney());
     }
     public int getTotalDamage(){
         return damage + this.getInventory().getWeapon().getDamage();

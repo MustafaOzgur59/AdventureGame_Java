@@ -21,8 +21,8 @@ public class Inventory {
     }
 
     public Inventory() {
-        this.armor = new Armor(-1,0,0,"Paçavra");
-        this.weapon = new Weapon("Yumruk",-1,0,0);
+        this.armor = new Armor(-1,0,0,"Rags");
+        this.weapon = new Weapon("Fist",-1,0,0);
         this.water = false;
         this.wood = false;
         this.food = false;

@@ -1,20 +1,20 @@
 public class ToolStore extends NormalLoc{
      public ToolStore(Player player){
-         super("Mağaza",player);
+         super("ToolStore",player);
      }
 
      @Override
     public boolean onLocation(){
-         System.out.println("-------Mağazaya Hoşgeldiniz-------");
+         System.out.println("-------Welcome to ToolStore-------");
          boolean showMenu = true;
          while(showMenu){
-             System.out.println("1 - Silahlar");
-             System.out.println("2 - Zırhlar");
-             System.out.println("3 - Çıkış");
-             System.out.println("Seçiminiz : ");
+             System.out.println("1 - Weapons");
+             System.out.println("2 - Armors");
+             System.out.println("3 - Exit");
+             System.out.println("Choice : ");
              int selectCase = Location.input.nextInt();
              while(selectCase<0 || selectCase > 3) {
-                 System.out.println("Geçersiz değer, tekrar giriniz : ");
+                 System.out.println("Invalid value, enter again : ");
                  selectCase = Location.input.nextInt();
              }
              switch (selectCase){
@@ -27,7 +27,7 @@ public class ToolStore extends NormalLoc{
                      buyArmor();
                      break;
                  case 3:
-                     System.out.println("Bir daha bekleriz !");
+                     System.out.println("Come again !");
                      showMenu=false;
                      break;
              }
@@ -36,23 +36,23 @@ public class ToolStore extends NormalLoc{
      }
 
      public void printWeapon(){
-         System.out.println("-----Silahlar-----");
-         System.out.println("0 - Çıkış yap.");
+         System.out.println("-----Weaopns-----");
+         System.out.println("0 - Quit.");
          for (Weapon  w : Weapon.weapons()){
              System.out.println("ID : " + w.getId()
                      + "\t<" +w.getName()
-                     + "\tFiyat : "
+                     + "\tPrice : "
                      + w.getPrice()
-                     + "\tHasar : " + w.getDamage() +">");
+                     + "\tDamage : " + w.getDamage() +">");
          }
 
      }
 
      public void buyWeapon(){
-         System.out.println("Bir silah seçiniz : ");
+         System.out.println("Select a weapon : ");
          int selectWeapon = Location.input.nextInt();
          while(selectWeapon<0 || selectWeapon > Weapon.weapons().length) {
-             System.out.println("Geçersiz değer, tekrar giriniz : ");
+             System.out.println("Invalid value, enter again : ");
              selectWeapon = Location.input.nextInt();
          }
          if(selectWeapon != 0){
@@ -61,16 +61,16 @@ public class ToolStore extends NormalLoc{
              if(selectedWeapon != null){
                  // weapon purchase logic
                  if(selectedWeapon.getPrice() > this.getPlayer().getMoney()){
-                     System.out.println("Yeterli paranız bulunmamaktadır");
+                     System.out.println("Not enough money");
                  }
                  else{
-                     System.out.println(selectedWeapon.getName() + " silahını satın aldınız ! ");
+                     System.out.println( "Purchased " + selectedWeapon.getName() + " ! ");
                      int newBalance = this.getPlayer().getMoney() - selectedWeapon.getPrice();
                      this.getPlayer().setMoney(newBalance);
-                     System.out.println("Eski silah : " + this.getPlayer().getInventory().getWeapon().getName());
+                     System.out.println("Old Weapon : " + this.getPlayer().getInventory().getWeapon().getName());
                      this.getPlayer().getInventory().setWeapon(selectedWeapon);
-                     System.out.println("Yeni silah : " + this.getPlayer().getInventory().getWeapon().getName());
-                     System.out.println("Kalan paranız : " + this.getPlayer().getMoney());
+                     System.out.println("New Weapon : " + this.getPlayer().getInventory().getWeapon().getName());
+                     System.out.println("Balance : " + this.getPlayer().getMoney());
                  }
              }
          }
@@ -80,21 +80,21 @@ public class ToolStore extends NormalLoc{
      }
 
     public void printArmor(){
-        System.out.println("-----Zırhlar-----");
-        System.out.println("0 - Çıkış yap. ");
+        System.out.println("-----Armors-----");
+        System.out.println("0 - Quit. ");
         for (Armor  a : Armor.armors()){
             System.out.println("ID : " + a.getId()
                     + "\t<" +a.getName()
-                    + "\tFiyat : "
+                    + "\tPrice : "
                     + a.getPrice()
-                    + "\tZırh : " + a.getBlock() +">");
+                    + "\tArmor : " + a.getBlock() +">");
         }
     }
     public void buyArmor(){
-        System.out.println("Bir zırh seçiniz : ");
+        System.out.println("Select an armor : ");
         int selectArmor = Location.input.nextInt();
         while(selectArmor<0 || selectArmor > Armor.armors().length) {
-            System.out.println("Geçersiz değer, tekrar giriniz : ");
+            System.out.println("Invalid value, enter again : ");
             selectArmor = Location.input.nextInt();
         }
         if(selectArmor != 0){
@@ -103,16 +103,16 @@ public class ToolStore extends NormalLoc{
             if(selectedArmor != null){
                 // weapon purchase logic
                 if(selectedArmor.getPrice() > this.getPlayer().getMoney()){
-                    System.out.println("Yeterli paranız bulunmamaktadır");
+                    System.out.println("Not enought money");
                 }
                 else{
-                    System.out.println(selectedArmor.getName() + " zırhını satın aldınız ! ");
+                    System.out.println("Purchased" + selectedArmor.getName() + " ! ");
                     int newBalance = this.getPlayer().getMoney() - selectedArmor.getPrice();
                     this.getPlayer().setMoney(newBalance);
-                    System.out.println("Eski zırh : " + this.getPlayer().getInventory().getArmor().getName());
+                    System.out.println("Old Armor: " + this.getPlayer().getInventory().getArmor().getName());
                     this.getPlayer().getInventory().setArmor(selectedArmor);
-                    System.out.println("Yeni zırh : " + this.getPlayer().getInventory().getArmor().getName());
-                    System.out.println("Kalan paranız : " + this.getPlayer().getMoney());
+                    System.out.println("New Armor : " + this.getPlayer().getInventory().getArmor().getName());
+                    System.out.println("Balance : " + this.getPlayer().getMoney());
                 }
             }
 

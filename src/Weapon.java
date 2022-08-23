@@ -12,9 +12,9 @@ public class Weapon {
 
     public static Weapon[] weapons(){
         Weapon[] weaponList = {
-                new Weapon("Tabanca", 1,2,10),
-                new Weapon("Kılıç", 2,3,35),
-                new Weapon("Tüfek", 3,7,45),
+                new Weapon("Gun", 1,2,10),
+                new Weapon("Sword", 2,3,35),
+                new Weapon("Rifle", 3,7,45),
         };
         return weaponList;
     }
