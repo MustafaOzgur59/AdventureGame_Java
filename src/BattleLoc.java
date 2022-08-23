@@ -83,7 +83,7 @@ public abstract class  BattleLoc extends Location{
             if(this.getObstacle().getId() == 4){
                 this.getObstacle().setDamage(rand.nextInt(3)+3);
             }
-            obstacleStats(i);
+            obstacleStats(i+1);
             while(this.getPlayer().getHealth() > 0 && this.getObstacle().getHealth() > 0){
                 System.out.println("<H>it or <R>un");
                 String selectCombat = input.nextLine().toUpperCase();
